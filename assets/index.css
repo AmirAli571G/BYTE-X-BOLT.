@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-navy-950: #020B18;
+  --color-navy-900: #040F20;
+  --color-navy-800: #071628;
+  --color-navy-700: #0C1F38;
+  --color-navy-600: #102848;
+  --color-neon-blue: #00C8F0;
+  --color-neon-blue-dim: #0099CC;
+  --color-purple: #7B61FF;
+  --color-purple-dim: #5A45CC;
+
+  --font-persian: 'Vazirmatn', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+  font-family: 'Vazirmatn', system-ui, sans-serif;
+}
+
+body {
+  background-color: #020B18;
+  color: #E8F4FF;
+  font-family: 'Vazirmatn', system-ui, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar while keeping functionality */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #040F20;
+}
+::-webkit-scrollbar-thumb {
+  background: #102848;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00C8F0;
+}
+
+/* Circuit SVG pattern background */
+.circuit-bg {
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(123, 97, 255, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 200, 240, 0.07) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2300C8F0' stroke-width='0.4' opacity='0.08'%3E%3Cline x1='0' y1='20' x2='20' y2='20'/%3E%3Cline x1='20' y1='20' x2='20' y2='0'/%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3Cline x1='40' y1='40' x2='80' y2='40'/%3E%3Cline x1='60' y1='40' x2='60' y2='80'/%3E%3Ccircle cx='60' cy='40' r='2'/%3E%3Cline x1='0' y1='60' x2='40' y2='60'/%3E%3Cline x1='40' y1='60' x2='40' y2='80'/%3E%3Ccircle cx='40' cy='60' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.glass-card {
+  background: rgba(7, 22, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 200, 240, 0.12);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 200, 240, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 200, 240, 0.1);
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00C8F0, #0099CC);
+  color: #020B18;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 0 20px rgba(0, 200, 240, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(0, 200, 240, 0.5);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #20D8FF, #00AADD);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #00C8F0;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 200, 240, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 200, 240, 0.1);
+  border-color: rgba(0, 200, 240, 0.7);
+  box-shadow: 0 0 20px rgba(0, 200, 240, 0.15);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: #E8F4FF;
+  margin-bottom: 0.5rem;
+}
+
+.section-title span {
+  color: #00C8F0;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00C8F0, #7B61FF);
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 200, 240, 0.25); }
+  50% { box-shadow: 0 0 40px rgba(0, 200, 240, 0.5); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
